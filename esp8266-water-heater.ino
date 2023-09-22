@@ -3,9 +3,9 @@
 #include <ESP8266WebServer.h>
 
 #include "relay.hpp"
-#include "wifi.h"
+#include "wifi.hpp"
 #include "ntp.h"
-#include "ota.h"
+#include "ota.hpp"
 #include "storage.hpp"
 #include "webserver.hpp"
 #include "schedules.hpp"
