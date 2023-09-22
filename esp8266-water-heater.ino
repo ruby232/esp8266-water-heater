@@ -5,8 +5,7 @@
 #include "relay.hpp"
 #include "wifi.h"
 #include "ntp.h"
-// Todo, no working
-// #include "ota.h"
+#include "ota.h"
 #include "storage.hpp"
 #include "webserver.hpp"
 #include "schedules.hpp"
@@ -19,6 +18,7 @@ void setup() {
   relay_setup();
   storage_setup();
   schedules_setup();
+  ota_setup();
 }
 
 void loop() {

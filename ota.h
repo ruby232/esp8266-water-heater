@@ -7,5 +7,5 @@
   #include <ESP8266mDNS.h>
 
   #include <ArduinoOTA.h>
-  // void ota_setup();
+  void ota_setup();
 #endif
