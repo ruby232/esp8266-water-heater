@@ -1,5 +1,10 @@
-# esp8266-water-heater
-Program for the water heater for Arduino esp8266.
+# Esp8266 Water Heater
+
+This Arduino project allows to automate water heater so that you always have hot water when you need it. 
+You can create a schedule to turn the water heater on and off at specific times of day, and you can also control the water heater manually using a web server.
+
+## Components
+Arduino board: esp8266
 
 ## Webserver Routes
 ### Set schedules 

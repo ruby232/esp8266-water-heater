@@ -1,5 +1,5 @@
 #ifndef RELAY_PIN
-#define RELAY_PIN 0  // GPIO 0 of ESP8266
+#define RELAY_PIN 16  // GPIO16 of ESP8266
 #endif
 
 void relay_setup() {
