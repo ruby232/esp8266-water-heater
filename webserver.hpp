@@ -1,33 +1,4 @@
-#include "webserver.h"
-#include "relay.hpp"
-
 ESP8266WebServer server(80);
-
-void webserver_setup() {
-  server.on("/", handleRoot);
-
-  server.on("/get-state", []() {
-    uint8_t value = relay_get_state();
-    char stringNum[1];
-    sprintf(stringNum,"%d",value);
-    server.send(200, "text/plain", stringNum);
-  });
-
-  server.on("/state-on", []() {
-    relay_set_state(HIGH);
-    server.send(204);
-  });
-
-  server.on("/state-off", []() {
-    relay_set_state(LOW);
-    server.send(204);
-  });
-
-  server.onNotFound(handleNotFound);
-
-  server.begin();
-  Serial.println("HTTP server started");
-}
 
 void handleRoot() {
   StreamString temp;
@@ -60,4 +31,41 @@ void handleNotFound() {
 
 void webserver_loop() {
   server.handleClient();
+}
+
+void webserver_setup() {
+  server.on("/", handleRoot);
+
+  server.on("/get-state", []() {
+    uint8_t value = relay_get_state();
+    char stringNum[1];
+    sprintf(stringNum,"%d",value);
+    server.send(200, "text/plain", stringNum);
+  });
+
+  server.on("/state-on", []() {
+    relay_set_state(HIGH);
+    server.send(204);
+  });
+
+  server.on("/state-off", []() {
+    relay_set_state(LOW);
+    server.send(204);
+  });
+
+  server.on("/get-schedules", []() {
+    String jsonString;
+    serializeJson(schedules, jsonString);
+    server.send(200, "application/json", jsonString);
+  });
+
+  server.on("/set-schedules",HTTPMethod::HTTP_POST, []() {
+    String message = setEEPROM_JSON(server.arg("plain"));
+    server.send(200, "text/plain", message);
+  });
+
+  server.onNotFound(handleNotFound);
+
+  server.begin();
+  Serial.println("HTTP server started");
 }

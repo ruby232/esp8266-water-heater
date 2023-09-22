@@ -1,5 +1,5 @@
 #ifndef RELAY_PIN
-#define RELAY_PIN 0 // GPIO 0 of ESP8266
+#define RELAY_PIN 0  // GPIO 0 of ESP8266
 #endif
 
 void relay_setup() {
@@ -7,7 +7,7 @@ void relay_setup() {
 }
 
 uint8_t relay_get_state() {
-  return digitalRead(RELAY_PIN); 
+  return digitalRead(RELAY_PIN);
 }
 
 void relay_set_state(uint8_t value) {

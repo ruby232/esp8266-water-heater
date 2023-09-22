@@ -1,18 +1,24 @@
 
 #include <Arduino.h>
+#include <ESP8266WebServer.h>
+
 #include "relay.hpp"
 #include "wifi.h"
 #include "ntp.h"
 // Todo, no working
 // #include "ota.h"
-#include "webserver.h"
+#include "storage.hpp"
+#include "webserver.hpp"
+#include "schedules.hpp"
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   initWifi();
   timeClient.begin();
   webserver_setup();
   relay_setup();
+  storage_setup();
+  schedules_setup();
 }
 
 void loop() {
