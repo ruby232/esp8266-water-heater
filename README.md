@@ -36,3 +36,11 @@ URL: http://water-heater.local/state-on
 
 ### Set relay state off
 URL: http://water-heater.local/state-off
+
+### Update OTA
+URL: http://water-heater.local/update
+
+## Tools and docs
+[Minify HTML](https://jsonformatter.org/minify-html)
+[Tutoriales útil para Ambos ESP8266](https://nocheprogramacion.com/series/arduino_esp/index.html)
+

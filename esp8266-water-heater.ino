@@ -5,7 +5,6 @@
 #include "relay.hpp"
 #include "wifi.hpp"
 #include "ntp.h"
-#include "ota.hpp"
 #include "storage.hpp"
 #include "webserver.hpp"
 #include "schedules.hpp"
@@ -18,7 +17,6 @@ void setup() {
   relay_setup();
   storage_setup();
   schedules_setup();
-  ota_setup();
 }
 
 void loop() {
